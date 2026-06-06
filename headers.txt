@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Sun, 17 May 2026 17:18:56 GMT
+Content-Type: application/zip
+X-Waterbutler-Request-Id: 87134642-97d9-450b-8702-cf532b20b0ba
+Content-Disposition: attachment; filename="osfstorage-archive.zip"; filename*=UTF-8''osfstorage-archive.zip
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Expires: -1
+Pragma: no-cache
+Via: 1.1 google
+Alt-Svc: h3=":443"; ma=2592000
+Transfer-Encoding: chunked
+
