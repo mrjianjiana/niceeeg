@@ -256,6 +256,22 @@ class IE:
         self.Proj_img = nn.DataParallel(self.Proj_img, device_ids=[i for i in range(len(gpus))])
         self.logit_scale = nn.Parameter(torch.ones([]) * np.log(1 / 0.07))
 
+    def adapt_eeg_features(self, eeg_features):
+        """Hook for lightweight feature adapters. Baseline keeps identity."""
+        return eeg_features
+
+    def extra_trainable_parameters(self):
+        """Hook for child experiments that add trainable modules."""
+        return []
+
+    def save_extra_modules(self, prefix):
+        """Hook for child experiments that need extra checkpoint files."""
+        return None
+
+    def load_extra_modules(self, prefix):
+        """Hook for child experiments that need extra checkpoint files."""
+        return None
+
     def model_prefix(self):
         rep_tag = f"tr{self.args.train_reps}_te{self.args.test_reps}"
         return f"{self.args.time_window}_{self.args.channel_group}_{rep_tag}_sub{self.nSub}_"
@@ -364,6 +380,7 @@ class IE:
                 self.Enc_eeg.parameters(),
                 self.Proj_eeg.parameters(),
                 self.Proj_img.parameters(),
+                *self.extra_trainable_parameters(),
             ),
             lr=self.lr,
             betas=(self.b1, self.b2),
@@ -385,6 +402,7 @@ class IE:
                 labels = Variable(labels.cuda().type(self.LongTensor))
 
                 eeg_features = self.Proj_eeg(self.Enc_eeg(eeg))
+                eeg_features = self.adapt_eeg_features(eeg_features)
                 img_features = self.Proj_img(img_features)
                 eeg_features = eeg_features / eeg_features.norm(dim=1, keepdim=True)
                 img_features = img_features / img_features.norm(dim=1, keepdim=True)
@@ -411,6 +429,7 @@ class IE:
                     vlabels = Variable(vlabels.cuda().type(self.LongTensor))
 
                     veeg_features = self.Proj_eeg(self.Enc_eeg(veeg))
+                    veeg_features = self.adapt_eeg_features(veeg_features)
                     vimg_features = self.Proj_img(vimg_features)
                     veeg_features = veeg_features / veeg_features.norm(dim=1, keepdim=True)
                     vimg_features = vimg_features / vimg_features.norm(dim=1, keepdim=True)
@@ -428,6 +447,7 @@ class IE:
                         torch.save(self.Enc_eeg.module.state_dict(), self.model_path / f"{prefix}Enc_eeg_cls.pth")
                         torch.save(self.Proj_eeg.module.state_dict(), self.model_path / f"{prefix}Proj_eeg_cls.pth")
                         torch.save(self.Proj_img.module.state_dict(), self.model_path / f"{prefix}Proj_img_cls.pth")
+                        self.save_extra_modules(prefix)
 
             print(
                 "Epoch:", e,
@@ -463,6 +483,7 @@ class IE:
             load_state_dict_safely(self.model_path / f"{prefix}Proj_img_cls.pth"),
             strict=False,
         )
+        self.load_extra_modules(prefix)
 
         self.Enc_eeg.eval()
         self.Proj_eeg.eval()
@@ -475,6 +496,7 @@ class IE:
                 all_center = Variable(all_center.type(self.Tensor))
 
                 tfea = self.Proj_eeg(self.Enc_eeg(teeg))
+                tfea = self.adapt_eeg_features(tfea)
                 tfea = tfea / tfea.norm(dim=1, keepdim=True)
                 similarity = (100.0 * tfea @ all_center.t()).softmax(dim=-1)
                 _, indices = similarity.topk(5)
