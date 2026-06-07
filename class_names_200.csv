@@ -1,0 +1,201 @@
+label,class_name,raw_concept,test_img_file
+0,aircraft carrier,00001_aircraft_carrier,aircraft_carrier_06s.jpg
+1,antelope,00002_antelope,antelope_01b.jpg
+2,backscratcher,00003_backscratcher,backscratcher_01b.jpg
+3,balance beam,00004_balance_beam,balance_beam_04s.jpg
+4,banana,00005_banana,banana_09s.jpg
+5,baseball bat,00006_baseball_bat,baseball_bat_10s.jpg
+6,basil,00007_basil,basil_05s.jpg
+7,basketball,00008_basketball,basketball_05s.jpg
+8,bassoon,00009_bassoon,bassoon_01b.jpg
+9,baton4,00010_baton4,baton4_05s.jpg
+10,batter,00011_batter,batter_01b.jpg
+11,beaver,00012_beaver,beaver_04s.jpg
+12,bench,00013_bench,bench_01b.jpg
+13,bike,00014_bike,bike_22s.jpg
+14,birthday cake,00015_birthday_cake,birthday_cake_01b.jpg
+15,blowtorch,00016_blowtorch,blowtorch_08s.jpg
+16,boat,00017_boat,boat_01b.jpg
+17,bok choy,00018_bok_choy,bok_choy_03s.jpg
+18,bonnet,00019_bonnet,bonnet_08s.jpg
+19,bottle opener,00020_bottle_opener,bottle_opener_13s.jpg
+20,brace,00021_brace,brace_08s.jpg
+21,bread,00022_bread,bread_19s.jpg
+22,breadbox,00023_breadbox,breadbox_01b.jpg
+23,bug,00024_bug,bug_08s.jpg
+24,buggy,00025_buggy,buggy_07s.jpg
+25,bullet,00026_bullet,bullet_01s.jpg
+26,bun,00027_bun,bun_01b.jpg
+27,bush,00028_bush,bush_07s.jpg
+28,calamari,00029_calamari,calamari_01b.jpg
+29,candlestick,00030_candlestick,candlestick_04s.jpg
+30,cart,00031_cart,cart_09s.jpg
+31,cashew,00032_cashew,cashew_01b.jpg
+32,cat,00033_cat,cat_01b.jpg
+33,caterpillar,00034_caterpillar,caterpillar_03s.jpg
+34,cd player,00035_cd_player,cd_player_02s.jpg
+35,chain,00036_chain,chain_01b.jpg
+36,chaps,00037_chaps,chaps_18s.jpg
+37,cheese,00038_cheese,cheese_06s.jpg
+38,cheetah,00039_cheetah,cheetah_05s.jpg
+39,chest2,00040_chest2,chest2_02s.jpg
+40,chime,00041_chime,chime_08s.jpg
+41,chopsticks,00042_chopsticks,chopsticks_11s.jpg
+42,cleat,00043_cleat,cleat_09s.jpg
+43,cleaver,00044_cleaver,cleaver_07s.jpg
+44,coat,00045_coat,coat_01b.jpg
+45,cobra,00046_cobra,cobra_01b.jpg
+46,coconut,00047_coconut,coconut_01b.jpg
+47,coffee bean,00048_coffee_bean,coffee_bean_01b.jpg
+48,coffeemaker,00049_coffeemaker,coffeemaker_13s.jpg
+49,cookie,00050_cookie,cookie_09s.jpg
+50,cordon bleu,00051_cordon_bleu,cordon_bleu_08s.jpg
+51,coverall,00052_coverall,coverall_06s.jpg
+52,crab,00053_crab,crab_17s.jpg
+53,creme brulee,00054_creme_brulee,creme_brulee_01b.jpg
+54,crepe,00055_crepe,crepe_18s.jpg
+55,crib,00056_crib,crib_14n.jpg
+56,croissant,00057_croissant,croissant_06s.jpg
+57,crow,00058_crow,crow_11s.jpg
+58,cruise ship,00059_cruise_ship,cruise_ship_03s.jpg
+59,crumb,00060_crumb,crumb_12s.jpg
+60,cupcake,00061_cupcake,cupcake_11s.jpg
+61,dagger,00062_dagger,dagger_06s.jpg
+62,dalmatian,00063_dalmatian,dalmatian_12s.jpg
+63,dessert,00064_dessert,dessert_01b.jpg
+64,dragonfly,00065_dragonfly,dragonfly_01b.jpg
+65,dreidel,00066_dreidel,dreidel_01b.jpg
+66,drum,00067_drum,drum_01b.jpg
+67,duffel bag,00068_duffel_bag,duffel_bag_03s.jpg
+68,eagle,00069_eagle,eagle_06s.jpg
+69,eel,00070_eel,eel_02s.jpg
+70,egg,00071_egg,egg_12s.jpg
+71,elephant,00072_elephant,elephant_11n.jpg
+72,espresso,00073_espresso,espresso_01b.jpg
+73,face mask,00074_face_mask,face_mask_12s.jpg
+74,ferry,00075_ferry,ferry_06s.jpg
+75,flamingo,00076_flamingo,flamingo_05s.jpg
+76,folder,00077_folder,folder_11s.jpg
+77,fork,00078_fork,fork_07s.jpg
+78,freezer,00079_freezer,freezer_04s.jpg
+79,french horn,00080_french_horn,french_horn_03s.jpg
+80,fruit,00081_fruit,fruit_01b.jpg
+81,garlic,00082_garlic,garlic_12n.jpg
+82,glove,00083_glove,glove_11s.jpg
+83,golf cart,00084_golf_cart,golf_cart_06s.jpg
+84,gondola,00085_gondola,gondola_11s.jpg
+85,goose,00086_goose,goose_02s.jpg
+86,gopher,00087_gopher,gopher_09s.jpg
+87,gorilla,00088_gorilla,gorilla_18s.jpg
+88,grasshopper,00089_grasshopper,grasshopper_06s.jpg
+89,grenade,00090_grenade,grenade_03s.jpg
+90,hamburger,00091_hamburger,hamburger_01s.jpg
+91,hammer,00092_hammer,hammer_08s.jpg
+92,handbrake,00093_handbrake,handbrake_08s.jpg
+93,headscarf,00094_headscarf,headscarf_03s.jpg
+94,highchair,00095_highchair,highchair_04s.jpg
+95,hoodie,00096_hoodie,hoodie_08s.jpg
+96,hummingbird,00097_hummingbird,hummingbird_01b.jpg
+97,ice cube,00098_ice_cube,ice_cube_11s.jpg
+98,ice pack,00099_ice_pack,ice_pack_01b.jpg
+99,jeep,00100_jeep,jeep_05s.jpg
+100,jelly bean,00101_jelly_bean,jelly_bean_06s.jpg
+101,jukebox,00102_jukebox,jukebox_01n.jpg
+102,kettle,00103_kettle,kettle_03n.jpg
+103,kneepad,00104_kneepad,kneepad_12s.jpg
+104,ladle,00105_ladle,ladle_13s.jpg
+105,lamb,00106_lamb,lamb_01b.jpg
+106,lampshade,00107_lampshade,lampshade_05s.jpg
+107,laundry basket,00108_laundry_basket,laundry_basket_12s.jpg
+108,lettuce,00109_lettuce,lettuce_05n.jpg
+109,lightning bug,00110_lightning_bug,lightning_bug_11s.jpg
+110,manatee,00111_manatee,manatee_05s.jpg
+111,marijuana,00112_marijuana,marijuana_13s.jpg
+112,meatloaf,00113_meatloaf,meatloaf_12s.jpg
+113,metal detector,00114_metal_detector,metal_detector_02s.jpg
+114,minivan,00115_minivan,minivan_17s.jpg
+115,modem,00116_modem,modem_04s.jpg
+116,mosquito,00117_mosquito,mosquito_02s.jpg
+117,muff,00118_muff,muff_12s.jpg
+118,music box,00119_music_box,music_box_06s.jpg
+119,mussel,00120_mussel,mussel_11s.jpg
+120,nightstand,00121_nightstand,nightstand_05s.jpg
+121,okra,00122_okra,okra_14n.jpg
+122,omelet,00123_omelet,omelet_10s.jpg
+123,onion,00124_onion,onion_10s.jpg
+124,orange,00125_orange,orange_07s.jpg
+125,orchid,00126_orchid,orchid_05s.jpg
+126,ostrich,00127_ostrich,ostrich_03s.jpg
+127,pajamas,00128_pajamas,pajamas_13s.jpg
+128,panther,00129_panther,panther_01b.jpg
+129,paperweight,00130_paperweight,paperweight_07s.jpg
+130,pear,00131_pear,pear_01b.jpg
+131,pepper1,00132_pepper1,pepper1_14s.jpg
+132,pheasant,00133_pheasant,pheasant_20s.jpg
+133,pickax,00134_pickax,pickax_05s.jpg
+134,pie,00135_pie,pie_18s.jpg
+135,pigeon,00136_pigeon,pigeon_05s.jpg
+136,piglet,00137_piglet,piglet_02s.jpg
+137,pocket,00138_pocket,pocket_04s.jpg
+138,pocketknife,00139_pocketknife,pocketknife_01b.jpg
+139,popcorn,00140_popcorn,popcorn_07s.jpg
+140,popsicle,00141_popsicle,popsicle_04s.jpg
+141,possum,00142_possum,possum_05s.jpg
+142,pretzel,00143_pretzel,pretzel_01b.jpg
+143,pug,00144_pug,pug_09s.jpg
+144,punch2,00145_punch2,punch2_14s.jpg
+145,purse,00146_purse,purse_06s.jpg
+146,radish,00147_radish,radish_10s.jpg
+147,raspberry,00148_raspberry,raspberry_10n.jpg
+148,recorder,00149_recorder,recorder_14s.jpg
+149,rhinoceros,00150_rhinoceros,rhinoceros_09s.jpg
+150,robot,00151_robot,robot_02s.jpg
+151,rooster,00152_rooster,rooster_03s.jpg
+152,rug,00153_rug,rug_09s.jpg
+153,sailboat,00154_sailboat,sailboat_05s.jpg
+154,sandal,00155_sandal,sandal_03s.jpg
+155,sandpaper,00156_sandpaper,sandpaper_08s.jpg
+156,sausage,00157_sausage,sausage_04s.jpg
+157,scallion,00158_scallion,scallion_04s.jpg
+158,scallop,00159_scallop,scallop_02s.jpg
+159,scooter,00160_scooter,scooter_07s.jpg
+160,seagull,00161_seagull,seagull_09s.jpg
+161,seaweed,00162_seaweed,seaweed_07s.jpg
+162,seed,00163_seed,seed_07s.jpg
+163,skateboard,00164_skateboard,skateboard_01b.jpg
+164,sled,00165_sled,sled_10s.jpg
+165,sleeping bag,00166_sleeping_bag,sleeping_bag_01b.jpg
+166,slide,00167_slide,slide_04s.jpg
+167,slingshot,00168_slingshot,slingshot_07s.jpg
+168,snowshoe,00169_snowshoe,snowshoe_04s.jpg
+169,spatula,00170_spatula,spatula_08s.jpg
+170,spoon,00171_spoon,spoon_04s.jpg
+171,station wagon,00172_station_wagon,station_wagon_04s.jpg
+172,stethoscope,00173_stethoscope,stethoscope_11s.jpg
+173,strawberry,00174_strawberry,strawberry_09n.jpg
+174,submarine,00175_submarine,submarine_09s.jpg
+175,suit,00176_suit,suit_13s.jpg
+176,t-shirt,00177_t-shirt,t-shirt_15s.jpg
+177,table,00178_table,table_07s.jpg
+178,taillight,00179_taillight,taillight_08s.jpg
+179,tape recorder,00180_tape_recorder,tape_recorder_01b.jpg
+180,television,00181_television,television_12s.jpg
+181,tiara,00182_tiara,tiara_07s.jpg
+182,tick,00183_tick,tick_06s.jpg
+183,tomato sauce,00184_tomato_sauce,tomato_sauce_02s.jpg
+184,tongs,00185_tongs,tongs_12s.jpg
+185,tool,00186_tool,tool_10s.jpg
+186,top hat,00187_top_hat,top_hat_13s.jpg
+187,treadmill,00188_treadmill,treadmill_11s.jpg
+188,tube top,00189_tube_top,tube_top_11s.jpg
+189,turkey,00190_turkey,turkey_01s.jpg
+190,unicycle,00191_unicycle,unicycle_10s.jpg
+191,vise,00192_vise,vise_11s.jpg
+192,volleyball,00193_volleyball,volleyball_10s.jpg
+193,wallpaper,00194_wallpaper,wallpaper_01b.jpg
+194,walnut,00195_walnut,walnut_02s.jpg
+195,wheat,00196_wheat,wheat_05n.jpg
+196,wheelchair,00197_wheelchair,wheelchair_02s.jpg
+197,windshield,00198_windshield,windshield_09s.jpg
+198,wine,00199_wine,wine_05s.jpg
+199,wok,00200_wok,wok_12s.jpg

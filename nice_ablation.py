@@ -264,6 +264,14 @@ class IE:
         """Hook for child experiments that add trainable modules."""
         return []
 
+    def get_aux_train_features(self):
+        """Hook for child experiments that add paired training features."""
+        return None
+
+    def compute_aux_loss(self, eeg_features, aux_features, labels, logit_scale):
+        """Hook for child experiments that add an auxiliary training loss."""
+        return None
+
     def save_extra_modules(self, prefix):
         """Hook for child experiments that need extra checkpoint files."""
         return None
@@ -344,6 +352,7 @@ class IE:
         train_eeg, _, test_eeg, test_label = self.get_eeg_data()
 
         train_img_feature, _ = self.get_image_data()
+        aux_feature = self.get_aux_train_features()
         test_center = np.load(
             Path(self.test_center_path) / f"center_{self.args.dnn}.npy",
             allow_pickle=True,
@@ -352,17 +361,25 @@ class IE:
         train_shuffle = np.random.permutation(len(train_eeg))
         train_eeg = train_eeg[train_shuffle]
         train_img_feature = train_img_feature[train_shuffle]
+        if aux_feature is not None:
+            aux_feature = aux_feature[train_shuffle]
 
         val_eeg = torch.from_numpy(train_eeg[:740])
         val_image = torch.from_numpy(train_img_feature[:740])
+        val_aux = torch.from_numpy(aux_feature[:740]) if aux_feature is not None else None
         train_eeg = torch.from_numpy(train_eeg[740:])
         train_image = torch.from_numpy(train_img_feature[740:])
+        train_aux = torch.from_numpy(aux_feature[740:]) if aux_feature is not None else None
 
-        dataset = torch.utils.data.TensorDataset(train_eeg, train_image)
+        if train_aux is None:
+            dataset = torch.utils.data.TensorDataset(train_eeg, train_image)
+            val_dataset = torch.utils.data.TensorDataset(val_eeg, val_image)
+        else:
+            dataset = torch.utils.data.TensorDataset(train_eeg, train_image, train_aux)
+            val_dataset = torch.utils.data.TensorDataset(val_eeg, val_image, val_aux)
         self.dataloader = torch.utils.data.DataLoader(
             dataset=dataset, batch_size=self.batch_size, shuffle=True
         )
-        val_dataset = torch.utils.data.TensorDataset(val_eeg, val_image)
         self.val_dataloader = torch.utils.data.DataLoader(
             dataset=val_dataset, batch_size=self.batch_size, shuffle=False
         )
@@ -395,9 +412,13 @@ class IE:
             self.Proj_eeg.train()
             self.Proj_img.train()
 
-            for _, (eeg, img) in enumerate(self.dataloader):
+            for _, batch in enumerate(self.dataloader):
+                eeg = batch[0]
+                img = batch[1]
+                aux = batch[2] if len(batch) > 2 else None
                 eeg = Variable(eeg.cuda().type(self.Tensor))
                 img_features = Variable(img.cuda().type(self.Tensor))
+                aux_features = Variable(aux.cuda().type(self.Tensor)) if aux is not None else None
                 labels = torch.arange(eeg.shape[0])
                 labels = Variable(labels.cuda().type(self.LongTensor))
 
@@ -413,6 +434,9 @@ class IE:
                 loss_eeg = self.criterion_cls(logits_per_eeg, labels)
                 loss_img = self.criterion_cls(logits_per_img, labels)
                 loss = (loss_eeg + loss_img) / 2
+                aux_loss = self.compute_aux_loss(eeg_features, aux_features, labels, logit_scale)
+                if aux_loss is not None:
+                    loss = loss + aux_loss
 
                 self.optimizer.zero_grad()
                 loss.backward()
@@ -422,9 +446,13 @@ class IE:
             self.Proj_eeg.eval()
             self.Proj_img.eval()
             with torch.no_grad():
-                for _, (veeg, vimg) in enumerate(self.val_dataloader):
+                for _, batch in enumerate(self.val_dataloader):
+                    veeg = batch[0]
+                    vimg = batch[1]
+                    vaux = batch[2] if len(batch) > 2 else None
                     veeg = Variable(veeg.cuda().type(self.Tensor))
                     vimg_features = Variable(vimg.cuda().type(self.Tensor))
+                    vaux_features = Variable(vaux.cuda().type(self.Tensor)) if vaux is not None else None
                     vlabels = torch.arange(veeg.shape[0])
                     vlabels = Variable(vlabels.cuda().type(self.LongTensor))
 
@@ -440,6 +468,11 @@ class IE:
                     vloss_eeg = self.criterion_cls(vlogits_per_eeg, vlabels)
                     vloss_img = self.criterion_cls(vlogits_per_img, vlabels)
                     vloss = (vloss_eeg + vloss_img) / 2
+                    vaux_loss = self.compute_aux_loss(
+                        veeg_features, vaux_features, vlabels, logit_scale
+                    )
+                    if vaux_loss is not None:
+                        vloss = vloss + vaux_loss
 
                     if vloss <= best_loss_val:
                         best_loss_val = vloss
